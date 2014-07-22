@@ -1,6 +1,6 @@
 {
   "name": "gulp-slash",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert gulp file paths using slash.",
   "keywords": [
     "gulpplugin",
