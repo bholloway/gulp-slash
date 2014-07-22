@@ -23,11 +23,12 @@ gulp.task('default', function () {
 });
 ```
 
-Without arguments returns an object stream for use with Gulp. The stream converts (in-place) the path, base, cwd
-properties in each vinyl file.
+When used without arguments it returns an object stream for use with Gulp. The stream converts (in-place) the path,
+base, cwd properties in each vinyl file.
 
 ```js
 var gulpSlash = require('gulp-slash');
 gulpSlash('c:\windows\file\path');  // c:/windows/file/path
+```
 
-Convenience for [slash](https://www.npmjs.org/package/slash).
+With used with arguments, it acts per [slash](https://www.npmjs.org/package/slash).
