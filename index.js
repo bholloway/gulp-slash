@@ -10,7 +10,7 @@ var through = require('through2');
 module.exports = function(text) {
   'use strict';
   if (arguments.length > 0) {
-    return slash(text);
+    return !!(text) ? slash(text) : text;
   } else {
     return through.obj(function(file, encoding, done) {
       [ 'path', 'cwd', 'base' ].forEach(function(field) {
