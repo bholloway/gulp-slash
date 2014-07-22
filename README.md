@@ -1,4 +1,33 @@
-gulp-slash
-==========
+# gulp
 
-Convert gulp file paths using slash.
+> Apply [slash](https://www.npmjs.org/package/slash) to gulp file paths.
+
+## Install
+
+Install with [npm](https://npmjs.org/package/gulp-slash).
+
+```
+npm install --save-dev gulp-slash
+```
+
+## Examples
+
+```js
+var gulp = require('gulp');
+var gulpSlash = require('gulp-slash');
+
+gulp.task('default', function () {
+	return gulp.src('js/**/*.js')
+		.pipe(gulpSlash())
+		/* ... do work here ... */
+});
+```
+
+Without arguments returns an object stream for use with Gulp. The stream converts (in-place) the path, base, cwd
+properties in each vinyl file.
+
+```js
+var gulpSlash = require('gulp-slash');
+gulpSlash('c:\windows\file\path');  // c:/windows/file/path
+
+Convenience for [slash](https://www.npmjs.org/package/slash).
