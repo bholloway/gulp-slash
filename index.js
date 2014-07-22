@@ -1,19 +1,20 @@
 var slash = require('slash');
-var through = require('through2')
+var through = require('through2');
 
 /**
  * Convert given text using node slash, or where no text is given, return a stream
  * that similarly converts gulp (vinyl) file paths in place.
  * @param {string} [text] Text to convert (per node slash)
- * @returns {string|Transform}
+ * @returns {string|Transform} Converted text where given, else a transform stream for gulp
  */
-exports.slash = function slash(text) {
+exports.slash = function(text) {
+  'use strict';
   if (arguments.length > 0) {
     return slash(text);
   } else {
     return through.obj(function(file, encoding, done) {
       [ 'path', 'cwd', 'base' ].forEach(function(field) {
-        var isValid = (field in file) && (typeof file[field] == typeof '');
+        var isValid = (field in file) && (typeof file[field] === typeof '');
         if (isValid) {
           file[field] = slash(file[field]);
         }
