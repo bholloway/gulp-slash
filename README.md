@@ -1,4 +1,4 @@
-# gulp
+# gulp-slash
 
 > Apply [slash](https://www.npmjs.org/package/slash) to gulp file paths.
 
