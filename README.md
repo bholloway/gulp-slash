@@ -31,4 +31,16 @@ var gulpSlash = require('gulp-slash');
 gulpSlash('c:\windows\file\path');  // c:/windows/file/path
 ```
 
-With used with arguments, it acts per [slash](https://www.npmjs.org/package/slash).
+With used with string argument, it acts per [slash](https://www.npmjs.org/package/slash).
+
+
+```js
+var gutil = require('gulp-util');
+var gulpSlash = require('gulp-slash');
+var file = new gutil.File();
+...
+var sameFile = gulpSlash(file);
+```
+
+With used with an object argument, it presumes the object is a vinyl file as used by Gulp. (in-place) the path,
+base, cwd properties of the given object.
