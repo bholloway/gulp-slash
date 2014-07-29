@@ -7,13 +7,13 @@ var through = require('through2');
  * @param {string|File} [candidate] Text or a vinyl file to convert
  * @returns {string|Transform} Converted text or file where given, else a transform stream for gulp
  */
-module.exports = function(candidate) {
+module.exports = function gulpSlash(candidate) {
   'use strict';
 
   // no arguments implies stream
   if (arguments.length === 0) {
     return through.obj(function(file, encoding, done) {
-      this.push(gulpSlash(file));
+      this.push(gulpSlash(file)); // requires named method
       done();
     });
 
